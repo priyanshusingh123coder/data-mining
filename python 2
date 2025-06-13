@@ -1,0 +1,25 @@
+import math
+import matplotlib.pyplot as plt
+
+a = 5  # Semi-major axis
+b = 3  # Semi-minor axis
+num_points = 1000
+
+
+theta_values = [2 * math.pi * i / num_points for i in range(num_points)]
+
+
+x = [a * math.cos(theta) for theta in theta_values]
+y = [b * math.sin(theta) for theta in theta_values]
+
+# Plotting
+plt.figure(figsize=(8, 6))
+plt.plot(x, y, label="orbit", color="red")
+plt.scatter([0], [0], color='orange', label='Focus (e.g., sun)')
+plt.title("Simulation of an Elliptical Orbit")
+plt.xlabel("x-position")
+plt.ylabel("y-position")
+plt.grid(True)
+plt.axis('equal')
+plt.legend()
+plt.show()
