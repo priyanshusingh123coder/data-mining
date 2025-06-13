@@ -1,0 +1,48 @@
+import matplotlib.pyplot as plt
+import random
+import math
+
+# Pie Chart
+labels = ['A', 'B', 'C', 'D']
+sizes = [15, 30, 45, 10]
+plt.figure(figsize=(10, 8))
+plt.subplot(2, 2, 1)
+plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+plt.title('Pie Chart')
+
+# Bar Chart
+categories = ['pink', 'Black', 'blue', 'red']
+values = [10, 24, 36, 18]
+plt.subplot(2, 2, 2)
+plt.bar(categories, values, color='orange')
+plt.title('Bar Chart')
+
+# Histogram (simulate normal distribution)
+def generate_normal_data(n):
+    data = []
+    for _ in range(n):
+        
+        u1 = random.random()
+        u2 = random.random()
+        z = math.sqrt(-2 * math.log(u1)) * math.cos(2 * math.pi * u2)
+        data.append(z)
+    return data
+
+hist_data = generate_normal_data(1000)
+plt.subplot(2, 2, 3)
+plt.hist(hist_data, bins=20, color='lightyellow', edgecolor='blue')
+plt.title('Histogram')
+
+# Scatter Plot
+x = [random.random() for _ in range(50)]
+y = [random.random() for _ in range(50)]
+colors = [random.random() for _ in range(50)]
+sizes = [1000 * random.random() for _ in range(50)]
+
+plt.subplot(2, 2, 4)
+scatter = plt.scatter(x, y, c=colors, s=sizes, alpha=0.5, cmap='viridis')
+plt.title('Scatter Plot')
+
+plt.tight_layout()
+plt.show()
+
