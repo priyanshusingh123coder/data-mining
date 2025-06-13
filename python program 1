@@ -1,0 +1,19 @@
+def find_greatest_number(numbers):
+    if not numbers:
+        return None  
+    greatest = numbers[0]
+    for num in numbers:
+        if num > greatest:
+            greatest = num  
+    return greatest
+
+
+input_string = input("Enter numbers separated by spaces: ")
+
+
+num_list = [int(x) for x in input_string.split()]
+
+
+
+greatest = find_greatest_number(num_list)
+print("The greatest number is:", greatest)
